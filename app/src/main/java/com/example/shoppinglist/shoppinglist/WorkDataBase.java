@@ -52,6 +52,7 @@ public class WorkDataBase implements Workings {
         }
     }
 
+    // Чтение записей
     @Override
     public ArrayList<String> readRecord() {
         ArrayList<String> list = new ArrayList<String>();
@@ -72,6 +73,7 @@ public class WorkDataBase implements Workings {
         }
     }
 
+    // Удалить запись по ид
     @Override
     public int deteleIdRecord(int id) {
         try {
@@ -84,6 +86,7 @@ public class WorkDataBase implements Workings {
         }
     }
 
+    // Обновить запись по ид
     @Override
     public int updateIdDataBase(int id, String entry_id, String title) {
         try {
@@ -99,6 +102,7 @@ public class WorkDataBase implements Workings {
         }
     }
 
+    // вернуть записи в cursor
     @Override
     public Cursor fetchAllList() {
         SQLiteDatabase db = mDbHelper.getReadableDatabase();

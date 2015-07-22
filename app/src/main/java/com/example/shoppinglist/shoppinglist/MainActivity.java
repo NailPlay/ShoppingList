@@ -1,11 +1,9 @@
 package com.example.shoppinglist.shoppinglist;
-// sdsd
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,10 +25,11 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d("", "Action Add Menu");
         shoppingList = (ListView) findViewById(R.id.listShoppingView);
         workDataBase = new WorkDataBase(this);
+
         cursor = workDataBase.fetchAllList();
+
         String[] columns = new String[]{ListShoppingDbHelper.ShoppingEntry.COLUMN_NAME_ENTRY_ID, ListShoppingDbHelper.ShoppingEntry.COLUMN_NAME_TITLE};
         int[] to = new int[]{R.id.productName, R.id.countName};
         cursorAdapter = new SimpleCursorAdapter(this, R.layout.list_cursor, cursor, columns, to, 0);
@@ -127,7 +126,6 @@ public class MainActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_add:
-                Log.d("", "Action Add Menu");
                 addDialog();
                 break;
             case R.id.action_deleteall:
