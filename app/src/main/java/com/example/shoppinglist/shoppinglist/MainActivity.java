@@ -27,6 +27,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d("", "Action Add Menu");
         shoppingList = (ListView) findViewById(R.id.listShoppingView);
         workDataBase = new WorkDataBase(this);
         cursor = workDataBase.fetchAllList();
